@@ -1,0 +1,10 @@
+import api from './axios';
+export const placeOrderApi       = (data)     => api.post('/orders', data);
+export const getMyOrdersApi      = (params)   => api.get('/orders/my', { params });
+export const getMyOrderApi       = (id)       => api.get(`/orders/my/${id}`);
+export const cancelOrderApi      = (id, data) => api.post(`/orders/my/${id}/cancel`, data);
+export const adminGetOrdersApi   = (params)   => api.get('/orders/admin', { params });
+export const adminGetOrderApi    = (id)       => api.get(`/orders/admin/${id}`);
+export const updateOrderStatusApi = (id, d)   => api.patch(`/orders/admin/${id}/status`, d);
+export const updatePaymentApi    = (id, d)    => api.patch(`/orders/admin/${id}/payment`, d);
+export const decideCancelApi     = (id, d)    => api.patch(`/orders/admin/${id}/cancellation`, d);

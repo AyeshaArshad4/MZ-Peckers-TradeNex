@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #E8E4D1;
+    color: #3F454D;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Scrollbar */
+  ::-webkit-scrollbar       { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #E8E4D1; }
+  ::-webkit-scrollbar-thumb { background: #CFCAB8; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #A8B58A; }
+
+  /* Card */
+  .card {
+    @apply rounded-2xl shadow-sm border;
+    background-color: #F7F5EF;
+    border-color: #CFCAB8;
+  }
+
+  /* Input */
+  .input-base {
+    @apply w-full rounded-xl px-4 py-2.5 text-sm
+           focus:outline-none focus:ring-2 focus:ring-offset-0
+           transition duration-150;
+    background-color: #F7F5EF;
+    border: 1px solid #CFCAB8;
+    color: #3F454D;
+    --tw-ring-color: #8FAF8B;
+  }
+  .input-base::placeholder { color: #66707A; }
+  .input-base:focus { border-color: #8FAF8B; }
+
+  /* Buttons */
+  .btn-primary {
+    @apply font-semibold rounded-xl px-5 py-2.5 text-sm transition duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-offset-2;
+    background-color: #8FAF8B;
+    color: #ffffff;
+    --tw-ring-color: #8FAF8B;
+  }
+  .btn-primary:hover { background-color: #7A9876; }
+  .btn-primary:active { background-color: #6B8A67; }
+
+  .btn-secondary {
+    @apply font-semibold rounded-xl px-5 py-2.5 text-sm transition duration-150;
+    background-color: #D8D6C8;
+    color: #3F454D;
+  }
+  .btn-secondary:hover { background-color: #CFCAB8; }
+  .btn-secondary:active { background-color: #C0BAA6; }
+
+  .btn-danger {
+    @apply font-semibold rounded-xl px-5 py-2.5 text-sm transition duration-150;
+    background-color: #C97B5E;
+    color: #ffffff;
+  }
+  .btn-danger:hover { background-color: #B5694D; }
+
+  .btn-ghost {
+    @apply rounded-xl px-4 py-2 text-sm font-medium transition duration-150;
+    color: #66707A;
+  }
+  .btn-ghost:hover { color: #3F454D; background-color: #D8D6C8; }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+}
+
+/* Page transition */
+.page-enter { animation: slideUp 0.35s ease forwards; }
+
+/* Sidebar active link */
+.nav-link-active {
+  background: linear-gradient(135deg, #D8E3D6, #C5D8C0);
+  color: #5E7A5A;
+  font-weight: 600;
+}
